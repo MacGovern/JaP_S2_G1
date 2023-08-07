@@ -44,4 +44,4 @@ async function getJSONData(url){
   return result;
 }
 
-showData(JSON.parse(getJSONData(DATA_URL).data.students));
+console.log(getJSONData(DATA_URL).data);
