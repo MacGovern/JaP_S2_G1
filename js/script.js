@@ -27,6 +27,21 @@ function showData(dataArray) {
 //   }
 // })
 
-fetch(DATA_URL)
-  .then(res => res.json())
-  .then(data => console.log(data))
+function getJSONData(url){
+  const result = {};
+  try{
+    const response = fetch(url);
+    if(response.ok) {
+      result.data = response.json();
+      result.status = "ok";
+    }else{
+      throw Error(response.statusText);
+    }
+  }catch(error){
+    result.status = 'error';
+    result.data = error;
+  }
+  return result;
+}
+
+showData(JSON.parse(getJSONData(DATA_URL).data.students));
