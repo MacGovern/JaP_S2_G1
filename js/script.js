@@ -27,21 +27,29 @@ function showData(dataArray) {
 //   }
 // })
 
-async function getJSONData(url){
-  const result = {};
-  try{
-    const response = await fetch(url);
-    if(response.ok) {
-      result.data = await response.json();
-      result.status = "ok";
-    }else{
-      throw Error(response.statusText);
-    }
-  }catch(error){
-    result.status = 'error';
-    result.data = error;
-  }
-  return result;
-}
+// async function getJSONData(url){
+//   const result = {};
+//   try{
+//     const response = await fetch(url);
+//     if(response.ok) {
+//       result.data = await response.json();
+//       result.status = "ok";
+//     }else{
+//       throw Error(response.statusText);
+//     }
+//   }catch(error){
+//     result.status = 'error';
+//     result.data = error;
+//   }
+//   return result;
+// }
 
-console.log(getJSONData(DATA_URL).students);
+// console.log(getJSONData(DATA_URL).students);
+
+fetch(DATA_URL)
+  .then(response => response.json())
+  .then(data => {
+    const studentsArray = data.students;
+    showData(studentsArray);
+  })
+  .catch(error => console.error("Error fetching data:", error));
