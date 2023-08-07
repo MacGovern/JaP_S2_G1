@@ -27,4 +27,5 @@ function showData(dataArray) {
 //   }
 // })
 
-console.log(fetch(DATA_URL).then(res.json()));
+fetch(DATA_URL)
+  .then(res => console.log(res))
