@@ -27,12 +27,12 @@ function showData(dataArray) {
 //   }
 // })
 
-function getJSONData(url){
+async function getJSONData(url){
   const result = {};
   try{
-    const response = fetch(url);
+    const response = await fetch(url);
     if(response.ok) {
-      result.data = response.json();
+      result.data = await response.json();
       result.status = "ok";
     }else{
       throw Error(response.statusText);
