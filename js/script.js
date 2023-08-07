@@ -19,10 +19,12 @@ function showData(dataArray) {
 }
 
 // Escribe el código necesario para realizar el fetch al archivo con los datos y mostrar los estudiantes con la función showData
-fetch(DATA_URL).then(res => {
-  if(res.ok){
-    showData(res.json().then(res => {
-      showData(res.data.students)
-    }))
-  }
-})
+// fetch(DATA_URL).then(res => {
+//   if(res.ok){
+//     showData(res.json().then(res => {
+//       showData(res.data.students)
+//     }))
+//   }
+// })
+
+console.log(fetch(DATA_URL));
