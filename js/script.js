@@ -19,37 +19,7 @@ function showData(dataArray) {
 }
 
 // Escribe el código necesario para realizar el fetch al archivo con los datos y mostrar los estudiantes con la función showData
-// fetch(DATA_URL).then(res => {
-//   if(res.ok){
-//     showData(res.json().then(res => {
-//       showData(res.data.students)
-//     }))
-//   }
-// })
-
-// async function getJSONData(url){
-//   const result = {};
-//   try{
-//     const response = await fetch(url);
-//     if(response.ok) {
-//       result.data = await response.json();
-//       result.status = "ok";
-//     }else{
-//       throw Error(response.statusText);
-//     }
-//   }catch(error){
-//     result.status = 'error';
-//     result.data = error;
-//   }
-//   return result;
-// }
-
-// console.log(getJSONData(DATA_URL).students);
-
 fetch(DATA_URL)
   .then(response => response.json())
-  .then(data => {
-    const studentsArray = data.students;
-    showData(studentsArray);
-  })
+  .then(data => showData(data.students))
   .catch(error => console.error("Error fetching data:", error));
