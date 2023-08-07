@@ -28,4 +28,5 @@ function showData(dataArray) {
 // })
 
 fetch(DATA_URL)
-  .then(res => console.log(res))
+  .then(res => res.json())
+  .then(data => console.log(data))
